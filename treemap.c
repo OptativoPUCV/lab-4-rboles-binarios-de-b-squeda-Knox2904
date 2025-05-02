@@ -49,6 +49,43 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
 
+    if(searchTreeMap(tree , key) != NULL) return ;
+    Pair* par = malloc(sizeof(Pair)) ; 
+    if(par== NULL)exit(EXIT_FAILURE) ; 
+    par->key = key ; 
+    par->value  = value ;
+    //--------------------------
+    TreeNode* NodoTemp = malloc(sizeof(TreeNode)) ;
+    NodoTemp->pair = par ; 
+    NodoTemp->left = NULL ; 
+    NodoTemp->right= NULL ; 
+    NodoTemp->parent = NULL ; 
+    //--------------------------
+    TreeNode* currentAux = NULL ; // no va a ser confuso para nada que se llamen igual
+    TreeNode* currentReal = tree->root ; 
+    //--------------------------
+    while(currentReal !=  NULL){
+        currentAux = currentReal ; //lo actualizo para saber donde estoy , aux es aparte del current real
+        if(tree->lower_than(key , currentReal->pair->key)){
+            currentReal = currentReal->left ; 
+        }
+        else if(tree->lower_than(currentReal->pair->key , key)){
+            currentReal = currentReal->right ; 
+        }
+    }
+    NodoTemp->parent = currentAux ;  // le actualizo la posicion a la correcta 
+    //--------------------------
+    if(currentAux == NULL){ //no ciclos , arbol vacio
+        tree->root = NodoTemp ; 
+    }
+    else if(tree->lower_than(key , currentAux->pair->key)){
+        currentAux->left = NodoTemp ; 
+    }
+    else {
+        currentAux->right = NodoTemp ; 
+    }
+    //--------------------------
+    tree->current = NodoTemp ; // se actualiza el current al nuevo nodo creado si todo esta bien 
 }
 
 TreeNode * minimum(TreeNode * x){
