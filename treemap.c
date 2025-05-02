@@ -40,10 +40,10 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
     TreeMap *MapAux = malloc(sizeof(TreeMap)) ; 
     if(MapAux==NULL)exit(EXIT_FAILURE) ; 
     
-    MapAux->current == NULL ;   
-    MapAux->root == NULL ; 
+    MapAux->current = NULL ;   
+    MapAux->root = NULL ; 
     MapAux->lower_than = lower_than;
-    
+
     return NULL;
 }
 
