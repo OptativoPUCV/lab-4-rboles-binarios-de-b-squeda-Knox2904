@@ -209,7 +209,7 @@ Pair * nextTreeMap(TreeMap * tree) {
     }
 
     TreeNode* padre = current->parent ; 
-    while(padre != NULL && current == padre->left){
+    while(padre != NULL && current == padre->right){
         current = padre ; 
         padre = padre->parent ;  // subiendo en el arbol 
     }
