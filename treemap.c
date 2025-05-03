@@ -208,5 +208,12 @@ Pair * nextTreeMap(TreeMap * tree) {
         return elMasApto->pair ; 
     }
 
-    return NULL;
+    TreeNode* padre = current->parent ; 
+    while(padre != NULL && current == padre->left){
+        current = padre ; 
+        padre = padre->parent ;  // subiendo en el arbol 
+    }
+
+    tree->current = padre ; 
+    return (padre != NULL) ? padre->pair : NULL; // ternarios 3 
 }
