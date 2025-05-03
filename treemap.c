@@ -152,8 +152,9 @@ void removeNode(TreeMap * tree, TreeNode* node) {
 
     removeNode(tree , elMasApto) ; // confiamos en el proceso de la recurisvidad
     //en realidad simplemente es que ahora se trata como cualquiera de los otros dos casos de arriba
+    //me acabo de dar cuenta de el consejo del profe en la tarea, tendria que haberla leido antes
     free(aux) ; 
-    
+
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
@@ -190,7 +191,10 @@ Pair * upperBound(TreeMap * tree, void* key) {
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
-    return NULL;
+    if(tree== NULL || tree->root == NULL) return NULL ; //basicamente lo mismo que minimum
+    TreeNode* minNodo = minimum(tree->root) ; // reutilizamos funciones
+    tree->current= minNodo ; // cambio el current
+    return (minNodo != NULL) ? minNodo->pair : NULL ; // operadores ternarios 2 
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
