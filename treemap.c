@@ -122,7 +122,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         return;
     }
     //---------------------------------------------------------
-    //caso2 nodo con hijo unico
+    //caso2 nodo con hijo unico 
     if(node->left == NULL || node->right == NULL){
         TreeNode* hijo = (node->left != NULL) ? node->left : node->right ; // operadores ternarios :D 
         
@@ -144,8 +144,15 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     }
     //---------------------------------------------------------
     //caso 3 nodo con dos hijos
-    
+    //no se podrian hacer cada una como funcion acaso? , para llamarla solo cuando sea necesario?
+    TreeNode* elMasApto = minimum(node->right) ; 
 
+    Pair*aux = node->pair ; // guardemos el par
+    node->pair = elMasApto->pair ; 
+
+    removeNode(tree , elMasApto) ; // confiamos en el proceso de la recurisvidad
+    //en realidad simplemente es que ahora se trata como cualquiera de los otros dos casos de arriba
+    free(aux) ; 
     
 }
 
