@@ -55,7 +55,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
     par->key = key ; 
     par->value  = value ;
     //--------------------------
-    TreeNode* NodoTemp = malloc(sizeof(TreeNode)) ;
+    TreeNode* NodoTemp = malloc(sizeof(TreeNode)) ; // me acabo de dar  cuenta que hay una funcion para crear el nodo :D
     NodoTemp->pair = par ; 
     NodoTemp->left = NULL ; 
     NodoTemp->right= NULL ; 
@@ -89,8 +89,13 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
 }
 
 TreeNode * minimum(TreeNode * x){
+    if(x== NULL) return NULL ; 
 
-    return NULL;
+    while(x->left != NULL){
+        x = x->left ; 
+    }
+
+    return x;
 }
 
 void removeNode(TreeMap * tree, TreeNode* node) {
