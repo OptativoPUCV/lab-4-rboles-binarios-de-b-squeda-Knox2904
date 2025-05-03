@@ -100,6 +100,39 @@ TreeNode * minimum(TreeNode * x){
 
 void removeNode(TreeMap * tree, TreeNode* node) {
 
+    if (node == NULL) return ; //llamemoslo caso 0 , nodo sin nada o inexistente por asi decirlo   
+
+    //---------------------------------------------------------
+    //caso1 nodo sin hijos
+    if(node->left == NULL && node->right == NULL){
+
+        if(node->parent== NULL){ // raiz == nodo o alrevez
+            tree->root == NULL ; 
+        } 
+        else {
+
+            if(node->parent->left == node){
+                node->parent->left = NULL ; 
+            }
+            else (node->parent->right = NULL) ; 
+
+        }
+        free(node->pair) ; 
+        free(node) ; 
+        return;
+    }
+    //---------------------------------------------------------
+    //caso2 nodo con hijo unico
+    if(node->left == NULL || node->right == NULL){
+        TreeNode* hijo = (node->left != NULL) ? node->left : node->right ; // operadores ternarios :D 
+        
+
+    }
+
+
+
+    //---------------------------------------------------------
+    
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
