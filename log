@@ -61,3 +61,14 @@ treemap.c:127:19: error: unused variable 'hijo' [-Werror=unused-variable]
                    ^~~~
 cc1.exe: all warnings being treated as errors
 31b895b
+Sat, May  3, 2025  4:18:11 PM: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:4:0:
+treemap.c: In function 'removeNode':
+treemap.c:127:19: error: unused variable 'hijo' [-Werror=unused-variable]
+         TreeNode* hijo = (node->left != NULL) ? node->left : node->right ; // operadores ternarios :D
+                   ^~~~
+cc1.exe: all warnings being treated as errors
+16536a0
