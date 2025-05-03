@@ -189,11 +189,9 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 Pair * upperBound(TreeMap * tree, void* key) {
     if(tree== NULL || tree->root == NULL) return NULL ;
 
-    TreeNode* node = searchTreeMap(tree , key) ; //buscamos el par 
+    Pair* par = searchTreeMap(tree , key) ; //buscamos el par 
 
-    if(node != NULL && tree->lower_than(key , node->pair->key) == 0){ // si lo encuentro
-        return node->pair ; 
-    }
+    if(par != NULL) return par ; 
 
     //si no lo encuentro
 
