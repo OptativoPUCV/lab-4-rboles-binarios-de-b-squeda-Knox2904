@@ -198,5 +198,15 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
+    if(tree== NULL || tree->root == NULL) return NULL ; //basicamente lo mismo que minimum y que arriba
+
+    TreeNode* current = tree->current ; // para que sea mas facil , lo dejo en una variable 
+
+    if (current->right!= NULL){
+        TreeNode* elMasApto = minimum(current->right) ; 
+        tree->current = elMasApto ; //actualizamos el current
+        return elMasApto->pair ; 
+    }
+
     return NULL;
 }
