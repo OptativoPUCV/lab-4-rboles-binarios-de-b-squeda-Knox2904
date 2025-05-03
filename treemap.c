@@ -209,7 +209,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
         }
     }
 
-    return NULL;
+    return (aux != NULL) ? aux->pair : NULL; // ternarios 4
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
